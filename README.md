@@ -86,7 +86,7 @@ Expose the previous pod to the outside world using services
 Project. Make sure to pick the correct service type to expose to the outside.
 * kubectl apply -f svc.yml
 * kubectl get svc
-* Navigate to http://localhost:8090/hello to see your service running
+* Navigate to http://localhost:8090/ to see your service running
 
 controllers
 -----------
@@ -110,5 +110,5 @@ Create a deployment based on `pod.yml`
 * kubectl apply -f deployment.yml
 * kubectl get deployment
 * kubectl get pods
-* Curl http://localhost:8090/hello to see your service responding with different pod names
+* Curl http://localhost:8090/ to see your service responding with different pod names
 * Explain why the orignal pod and deployment pods are both returning results
