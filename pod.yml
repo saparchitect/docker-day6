@@ -8,6 +8,13 @@ spec:
   containers:
   - name: rickshello
     image: saparchitect/hello-api:v0.1.0
+    resources:
+      requests:
+         memory: "16Mi"
+         cpu: "800m"
+      limits:
+         memory: "32Mi"
+         cpu: "1500m" 
     env:
       # learn about the downward api https://kubernetes.io/docs/tasks/inject-data-application/environment-variable-expose-pod-information/#the-downward-api
     - name: HELLO
