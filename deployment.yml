@@ -1,17 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:
+  name: rickshello
   labels:
-    app:
+    app: rickshello
+# Pod Sec
 spec:
-  replicas:
+  replicas: 3
   selector:
     matchLabels:
-      app:
+      app: rickshello 
   template:
     metadata:
       labels:
-        app:
+        app: rickshello
     spec:
       containers:
+      - name: rickshello
+        image: saparchitect/hello-api:v0.1.0
+        env:
+          # learn about the downward api https://kubernetes.io/docs/tasks/inject-data-application/environment-variable-expose-pod-information/#the-downward-api
+        - name: HELLO
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        ports:
+        - name: http
+          containerPort: 8090
+          protocol: TCP
